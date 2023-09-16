@@ -15,7 +15,7 @@ const Tech = (props: {}): JSX.Element => {
         <p className='text-white text-lg sm:text-xl font-thin font-syne mt-4'> I&apos;m most familiar with these — more being added </p>
 
         <div className='flex mt-12 gap-3'>
-            {technologies.map((tech, index) => <TechBubble tech={tech} delay={index * 100} />)}
+            {technologies.map((tech, index) => <TechBubble key={index} tech={tech} delay={index * 100} />)}
         </div>
     </section>
 };
