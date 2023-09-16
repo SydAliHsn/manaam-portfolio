@@ -34,7 +34,7 @@ const About = (props: {}): JSX.Element => {
         </div>
         <div
             data-aos="fade-left" data-aos-duration="1000">
-            <Image src={profileImage} alt={'profile'} className='sm:max-w-[25rem] rounded-[2.5rem] mx-auto' />
+            <Image src={profileImage} alt={'profile'} className='max-w-[min(100%,25rem)] sm:max-w-[25rem] rounded-[2.5rem] mx-auto' />
         </div>
     </section>
 };
