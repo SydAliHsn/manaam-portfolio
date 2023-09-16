@@ -4,20 +4,18 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const Navbar = (props: {}): JSX.Element => {
-    const [mobileNav, setMobileNav] = useState(false);
+    const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
     useEffect(() => {
         const closeNav = () => {
-            if (mobileNav) {
-                setMobileNav(false);
-            }
+            if (mobileNavOpen) setMobileNavOpen(false);
         }
 
         window.addEventListener('scroll', closeNav)
 
         return () =>
             window.removeEventListener('scroll', closeNav)
-    }, []);
+    }, [mobileNavOpen]);
 
     return <nav className="flex items-center justify-between py-8">
         <div className="logo">
@@ -38,13 +36,18 @@ const Navbar = (props: {}): JSX.Element => {
             </li>
             <li>
                 <Link href="#work" className="text-sm font-rubik font-normal text-white">
-                    My works
+                    My Works
+                </Link>
+            </li>
+            <li>
+                <Link href="#contact" className="text-sm font-rubik font-normal text-white">
+                    Contact Me
                 </Link>
             </li>
         </ul>
         <div className="md:hidden block">
             <button className='cursor-pointer'
-                onClick={() => setMobileNav(!mobileNav)}>
+                onClick={() => setMobileNavOpen(!mobileNavOpen)}>
                 <svg
                     viewBox="0 0 48 48"
                     xmlns="http://www.w3.org/2000/svg"
@@ -62,17 +65,28 @@ const Navbar = (props: {}): JSX.Element => {
 
             <ul
                 id="menu"
-                className={`fixed flex flex-col items-center self-end py-8 mt-10 space-y-6 font-bold bg-zinc-900 sm:w-auto sm:self-center left-6 right-6 z-10 rounded-2xl ${!mobileNav && 'translate-x-[120%]'} transition-all duration-300`}
+                className={`fixed flex flex-col items-center self-end py-8 mt-10 space-y-6 font-bold bg-zinc-900 sm:w-auto sm:self-center left-6 right-6 z-10 rounded-2xl ${!mobileNavOpen && 'translate-x-[120%]'} transition-all duration-300`}
             >
-                <Link href="/" className="font-rubik font-normal text-white">
-                    Home
-                </Link>
-                <Link href="#about" className="font-rubik font-normal text-white">
-                    About Me
-                </Link>
-                <Link href="#work" className="font-rubik font-normal text-white">
-                    My works
-                </Link>
+                <li>
+                    <Link href="/" className="font-rubik font-normal text-white">
+                        Home
+                    </Link>
+                </li>
+                <li>
+                    <Link href="#about" className="font-rubik font-normal text-white">
+                        About Me
+                    </Link>
+                </li>
+                <li>
+                    <Link href="#work" className="font-rubik font-normal text-white">
+                        My Works
+                    </Link>
+                </li>
+                <li>
+                    <Link href="#contact" className="font-rubik font-normal text-white">
+                        Contact Me
+                    </Link>
+                </li>
             </ul>
 
 
