@@ -68,7 +68,6 @@ const Navbar = (props: {}): JSX.Element => {
                 id="menu"
                 className={`fixed flex flex-col items-center self-end py-8 mt-10 space-y-6 font-bold bg-zinc-900 sm:w-auto sm:self-center left-6 right-6 z-10 rounded-2xl ${!mobileNavOpen && 'translate-x-[120%]'} transition-all duration-300`}
             >
-
                 <li>
                     <Link href="#about" className="font-rubik font-normal text-white">
                         About Me
