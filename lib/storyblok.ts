@@ -1,5 +1,5 @@
 import StoryblokClient from 'storyblok-js-client';
-import { Testimonial } from './types';
+import { Project, Testimonial } from './types';
 
 const Storyblok = new StoryblokClient({
   accessToken: process.env.STORYBLOK_SPACE_ACCESS_TOKEN,
@@ -15,6 +15,18 @@ export const getTestimonials = async (): Promise<Testimonial[]> => {
   });
 
   return testimonials;
+};
+
+export const getProjects = async (): Promise<Project[]> => {
+  const stories = (await getStories({ page: 1, starts_with: 'projects/' })) as any;
+
+  const projects: Project[] = stories.map((story: any) => {
+    const { title, image, description } = story.content;
+
+    return { title, image: image.filename, description };
+  });
+
+  return projects;
 };
 
 const getStories = async ({

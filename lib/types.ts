@@ -3,3 +3,9 @@ export interface Testimonial {
   review: string;
   stars: number;
 }
+
+export interface Project {
+  title: string;
+  description: string;
+  image: string;
+}
