@@ -4,12 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html,
+body {
+  overflow-x: hidden;
   width: 100vw !important;
 }
 
 body {
-  overflow-x: hidden;
   background: #1a1a1a;
 }
 .img-bg {
