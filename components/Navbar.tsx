@@ -7,9 +7,16 @@ const Navbar = (props: {}): JSX.Element => {
     const [mobileNav, setMobileNav] = useState(false);
 
     useEffect(() => {
-        document.addEventListener('scroll', e => {
-            mobileNav && setMobileNav(false);
-        })
+        const closeNav = () => {
+            if (mobileNav) {
+                setMobileNav(false);
+            }
+        }
+
+        window.addEventListener('scroll', closeNav)
+
+        return () =>
+            window.removeEventListener('scroll', closeNav)
     }, []);
 
     return <nav className="flex items-center justify-between py-8">
