@@ -9,7 +9,7 @@ import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import { getTestimonials } from '@/lib/storyblok';
 
-export const revalidate = 3600;
+export const revalidate = 2 * 3600;
 
 export default async function Home() {
   const testimonials = await getTestimonials();

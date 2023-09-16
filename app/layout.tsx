@@ -21,12 +21,11 @@ export const metadata: Metadata = {
   description: 'This is my portfolio website. I am an embedded developer. I love to code and learn new things. I am a tech enthusiast and love to explore new technologies.',
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-
   return (
     <html lang="en" className='scroll-smooth'>
       <body className={`${rubik.variable} ${syne.variable}`}>{children}</body>
