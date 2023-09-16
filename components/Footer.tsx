@@ -10,7 +10,7 @@ const Footer = (props: {}): JSX.Element => {
             <h2
                 className="text-lg sm:text-2xl lg:text-3xl font-syne font-bold text-white lowercase underline mt-2"
             >
-                contact@manaam.com
+                hello@manaamrehan.com
             </h2>
         </div>
         <div
