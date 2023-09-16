@@ -1,10 +1,6 @@
 import React from 'react';
 
-const Tech = (props: {}): JSX.Element => {
-    const technologies = [
-        'Python', 'AWS', 'C/C++', 'RTOS', 'ESP32', 'nRF52832', 'STM32', 'Arduino'
-    ]
-
+const Tech = ({ technologies }: { technologies: string[] }): JSX.Element => {
     return <section
         id="tech"
         className="my-20 flex items-center justify-center flex-col"

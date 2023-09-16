@@ -7,7 +7,7 @@ import Testimonials from '@/components/Testimonials'
 import About from '@/components/About';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
-import { getProjects, getTestimonials } from '@/lib/storyblok';
+import { getProjects, getTestimonials, getTechnologies } from '@/lib/storyblok';
 import Tech from '@/components/Tech';
 
 export const revalidate = 2 * 3600;
@@ -15,6 +15,7 @@ export const revalidate = 2 * 3600;
 export default async function Home() {
   const testimonials = await getTestimonials();
   const projects = await getProjects();
+  const technologies = await getTechnologies();
 
   return (
     <AosWrapper>
@@ -42,7 +43,7 @@ export default async function Home() {
 
         <About />
 
-        <Tech />
+        <Tech technologies={technologies} />
 
         <Projects projects={projects} />
 

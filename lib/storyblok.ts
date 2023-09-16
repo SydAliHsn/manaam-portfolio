@@ -29,6 +29,14 @@ export const getProjects = async (): Promise<Project[]> => {
   return projects;
 };
 
+export const getTechnologies = async (): Promise<string[]> => {
+  const story = (await getStories({ page: 1, starts_with: 'technologies' }))[0] as any;
+
+  const { techNames } = story.content;
+
+  return techNames.split(',').map((tech: string) => tech.trim());
+};
+
 const getStories = async ({
   page,
   per_page = 100,
