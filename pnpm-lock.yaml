@@ -44,6 +44,9 @@ dependencies:
   react-icons:
     specifier: ^4.11.0
     version: 4.11.0(react@18.2.0)
+  storyblok-js-client:
+    specifier: ^6.1.0
+    version: 6.1.0
   tailwindcss:
     specifier: 3.3.3
     version: 3.3.3
@@ -2296,6 +2299,10 @@ packages:
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /storyblok-js-client@6.1.0:
+    resolution: {integrity: sha512-qT+5FLuUTKUyz84BaT+wHBLsMsJv89029TC62D4iZ7sa+q3z1DFE3TJMMg3sQkYwS953juSBcQXTlf7XrBpqyA==}
     dev: false
 
   /streamsearch@1.1.0:

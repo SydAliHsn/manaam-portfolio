@@ -1,8 +1,9 @@
 import React from 'react';
-
 import { AiFillStar } from 'react-icons/ai';
 
-const Testimonials = (props: {}): JSX.Element => {
+import { Testimonial } from '@/lib/types';
+
+const Testimonials = ({ testimonials }: { testimonials: Testimonial[] }): JSX.Element => {
     return <section
         id="testimonials"
         className="flex flex-col gap-10 mb-16"
@@ -12,26 +13,13 @@ const Testimonials = (props: {}): JSX.Element => {
         <section className="hidden md:block img-bg left-4 mt-4"></section>
 
         <div className='grid lg:grid-cols-[repeat(3,1fr)] gap-8'>
-            <Testimonial text='Manaam was fantastic to work with from start to finish. We were
-                looking for a simple, stand-out logo and he delivered. I tried
-                designing the logo myself thinking I wouldn&apos;t need to pay the
-                money for a professional graphic designer but I was very wrong.'
-                stars={5} name='Syed Ali' />
-            <Testimonial text='Manaam was fantastic to work with from start to finish. We were
-                looking for a simple, stand-out logo and he delivered. I tried
-                designing the logo myself thinking I wouldn&apos;t need to pay the
-                money for a professional graphic designer but I was very wrong.'
-                stars={5} name='Syed Ali' />
-            <Testimonial text='Manaam was fantastic to work with from start to finish. We were
-                looking for a simple, stand-out logo and he delivered. I tried
-                designing the logo myself thinking I wouldn&apos;t need to pay the
-                money for a professional graphic designer but I was very wrong.'
-                stars={5} name='Syed Ali' />
+            {testimonials.map(testimonial =>
+                <TestimonialCard key={testimonial.reviewer} review={testimonial.review} stars={testimonial.stars} reviewer={testimonial.reviewer} />)}
         </div>
     </section>
 };
 
-const Testimonial = ({ text, name, stars, className }: { text: string, name: string, stars: number, className?: string }) => {
+const TestimonialCard = ({ review, reviewer, stars, className }: { review: string, reviewer: string, stars: number, className?: string }) => {
     return <div className={`bg-zinc-900 rounded-xl p-4 sm:p-6 xl:p-8 ${className}`}
         data-aos="zoom-in"
     >
@@ -44,10 +32,10 @@ const Testimonial = ({ text, name, stars, className }: { text: string, name: str
         </div>
         <div className="mt-2">
             <p className="text-sm font-rubik font-thin text-slate-400">
-                “{text}”
+                “{review}”
             </p>
             <h2 className="font-syne text-md text-white font-bold mt-6">
-                -{name}
+                -{reviewer}
             </h2>
         </div>
     </div>

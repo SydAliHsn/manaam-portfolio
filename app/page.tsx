@@ -1,25 +1,21 @@
-'use client'
-
-import { useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import aos from 'aos';
-import 'aos/dist/aos.css';
 
+import AosWrapper from '@/components/AosWrapper';
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import Testimonials from '@/components/Testimonials'
 import About from '@/components/About';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
+import { getTestimonials } from '@/lib/storyblok';
 
-export default function Home() {
-  useEffect(() => {
-    aos.init();
-  }, []);
+export const revalidate = 3600;
+
+export default async function Home() {
+  const testimonials = await getTestimonials();
 
   return (
-    <>
+    <AosWrapper>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Navbar />
         <section
@@ -46,12 +42,12 @@ export default function Home() {
 
         <Projects />
 
-        <Testimonials />
+        <Testimonials testimonials={testimonials} />
 
         <Contact />
       </div>
 
       <Footer />
-    </>
+    </AosWrapper>
   )
 }
