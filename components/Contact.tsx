@@ -1,7 +1,10 @@
 import React from 'react';
 
 const Contact = (props: {}): JSX.Element => {
-    return <section id='contact'>
+    return <section id='contact'
+        data-aos="fade-up"
+        data-aos-duration="1000"
+    >
         <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
             <h2 className="mb-4 font-rubik text-4xl tracking-tight font-extrabold text-center text-white">Contact Me</h2>
             <p className="mb-8 lg:mb-16 font-light text-center text-gray-400 sm:text-xl">Would love to discuss any potential opportunities or collaborations. Also would love to guide or help anyone in need :)</p>
