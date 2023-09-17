@@ -10,7 +10,7 @@ const Tech = ({ technologies }: { technologies: string[] }): JSX.Element => {
         </h2>
         <p className='text-white text-lg sm:text-xl font-thin font-syne text-center sm:text-left mt-4'> I&apos;m most familiar with these — more being added </p>
 
-        <div className='flex mt-10 sm:mt-12 gap-3 items-center justify-center flex-wrap'>
+        <div className='flex mt-10 sm:mt-12 gap-3 items-center justify-center flex-wrap max-w-3xl'>
             {technologies.map((tech, index) => <TechBubble key={index} tech={tech} delay={index * 100} />)}
         </div>
     </section>
