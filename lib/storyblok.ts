@@ -1,5 +1,5 @@
 import StoryblokClient from 'storyblok-js-client';
-import { Project, Testimonial } from './types';
+import { AboutContent, Project, Testimonial } from './types';
 
 const Storyblok = new StoryblokClient({
   accessToken: process.env.STORYBLOK_SPACE_ACCESS_TOKEN,
@@ -35,6 +35,14 @@ export const getTechnologies = async (): Promise<string[]> => {
   const { techNames } = story.content;
 
   return techNames.split(',').map((tech: string) => tech.trim());
+};
+
+export const getAboutContent = async (): Promise<AboutContent> => {
+  const story = (await getStories({ page: 1, starts_with: 'about' }))[0] as any;
+
+  const { paragraph1, paragraph2, paragraph3 } = story.content;
+
+  return { paragraphs: [paragraph1, paragraph2, paragraph3] };
 };
 
 const getStories = async ({

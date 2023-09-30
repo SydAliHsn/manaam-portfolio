@@ -9,3 +9,7 @@ export interface Project {
   description: string;
   image: string;
 }
+
+export interface AboutContent {
+  paragraphs: string[];
+}
