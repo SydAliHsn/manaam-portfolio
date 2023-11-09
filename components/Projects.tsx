@@ -20,7 +20,7 @@ const Projects = ({ projects }: { projects: Project[] }): JSX.Element => {
 
 const ProjectCard = ({ image, description, title }: { image: string, description: string, title: string }): JSX.Element => {
     return <div className="p-4" data-aos="flip-left" data-aos-duration="1000">
-        <img src={image} alt="Image" className="max-h-[20rem] mx-auto sm:mx-0" />
+        <img src={image} alt="Image" className="max-h-[20rem] mx-auto sm:mx-0 rounded-lg" />
         <div className="mt-4">
             <h2 className="text-lg font-bold font-syne text-white">
                 {title}
